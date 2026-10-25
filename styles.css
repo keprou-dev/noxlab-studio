@@ -260,12 +260,27 @@ body.menu-open .mfoot{opacity:1}
   font-family:var(--font-d);font-style:italic;font-weight:400;
   font-size:clamp(4.4rem,15.5vw,12.4rem);line-height:.95;letter-spacing:-.03em;
   transform:skewX(-6deg);
-  background:linear-gradient(180deg,#ffffff 30%,#c4daf5 90%);
-  -webkit-background-clip:text;background-clip:text;color:transparent;
   filter:drop-shadow(0 0 40px rgba(63,183,255,.22));
 }
-.js .hero-name .lt{display:inline-block;opacity:0;transform:translateY(70px) rotate(8deg) scale(.85);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1);transition-delay:calc(var(--i)*70ms + .6s)}
-.loaded .hero-name .lt{opacity:1;transform:none}
+/* Lettres : élément statique uniquement (dégradé + découpe texte).
+   L'animation vit sur le wrapper .ltw (hors de l'élément dégradé)
+   pour éviter le bug d'affichage Chromium : un fond opaque (tache
+   blanche) qui clignote quand background-clip:text est animé. */
+.hero-name .lt{
+  display:inline-block;
+  background:linear-gradient(180deg,#ffffff 30%,#c4daf5 90%);
+  -webkit-background-clip:text;background-clip:text;
+  color:transparent;
+}
+.js .hero-name .ltw{
+  display:inline-block;opacity:0;
+  transform:translateY(70px) rotate(8deg) scale(.85);
+  transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1);
+  transition-delay:calc(var(--i)*70ms + .6s);
+  will-change:opacity,transform;
+}
+.loaded .hero-name .ltw{opacity:1;transform:none}
+.js .hero-name .lt{transition:none}
 .hero-sub-name{display:flex;align-items:center;gap:22px;margin:14px 0 20px;color:var(--blue);font-weight:700;font-size:clamp(.9rem,2vw,1.15rem);letter-spacing:.62em;text-indent:.62em;transition-delay:1.05s}
 .loaded .hero-sub-name{opacity:1;transform:none}
 .hero-sub-name i{flex:0 0 clamp(40px,8vw,90px);height:1px;background:linear-gradient(90deg,transparent,var(--blue2));box-shadow:0 0 8px rgba(63,183,255,.7)}
@@ -685,8 +700,9 @@ body.menu-open .mfoot{opacity:1}
 .foot-base .script{color:var(--blue2);font-size:1.15rem}
 .f-site{color:var(--blue2);font-weight:700;transition:color .3s}
 .f-site:hover{color:#fff}
-/* Per-letter gradient fix (découpage lettres hero) */
-.hero-name .lt{background:inherit;-webkit-background-clip:text;background-clip:text}
+/* Per-letter gradient fix (découpage lettres hero) : le dégradé est désormais posé
+   directement sur .lt (voir le bloc .hero-name .lt) — l'ancien hack background:inherit
+   est retiré, il laissait des rectangles clairs pendant l'intro. */
 
 /* ---------- Navigation masquée quand menu ouvert ---------- */
 body.menu-open .nav{transform:none !important}
@@ -744,7 +760,7 @@ body.menu-open .scroll-progress{opacity:0}
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
-  .js .rv,.js .p-row,.js .hero-name .lt,.js .ldst,.js .sw b{opacity:1 !important;transform:none !important}
+  .js .rv,.js .p-row,.js .hero-name .ltw,.js .ldst,.js .sw b{opacity:1 !important;transform:none !important}
   .cur{display:none}
   #toTop{transition:none}
 }
