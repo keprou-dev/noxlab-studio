@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Noxlab Studio — Enregistrement, Mixage, Vidéo & IA</title>
+  <meta name="description" content="Noxlab Studio : enregistrement, mixage & mastering, clips vidéo, shorts & TikTok, réseaux sociaux et création IA. Ton projet, notre vision.">
+  <meta name="theme-color" content="#04060d">
+  <script>document.documentElement.classList.add("js");</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Caveat:wght@600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233fb7ff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 9l2.5 7h13L21 9l-4.5 2.5L12 4 7.5 11.5z'/%3E%3Cpath d='M6 19h12'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ══════════ PRELOADER ══════════ -->
+  <div id="preloader" class="preloader" aria-hidden="true">
+    <div class="pl-inner">
+      <div class="pl-letters">
+        <span class="pl-l" style="--i:0">N</span><span class="pl-l" style="--i:1">O</span><span class="pl-l" style="--i:2">X</span><span class="pl-l" style="--i:3">L</span><span class="pl-l" style="--i:4">A</span><span class="pl-l" style="--i:5">B</span>
+      </div>
+      <div class="pl-bar"><span></span></div>
+      <p class="pl-tag">STUDIO — SON • IMAGE • IA</p>
+    </div>
+  </div>
+
+  <!-- barre de progression du scroll -->
+  <div id="progress" class="scroll-progress" aria-hidden="true"></div>
+
+  <!-- curseur personnalisé -->
+  <div id="curDot" class="cur cur-dot" aria-hidden="true"></div>
+  <div id="curRing" class="cur cur-ring" aria-hidden="true"></div>
+
+  <!-- décor de fond -->
+  <div class="bg-fx" aria-hidden="true">
+    <div class="blob b1" data-parallax="0.14"></div>
+    <div class="blob b2" data-parallax="-0.1"></div>
+    <div class="blob b3" data-parallax="0.22"></div>
+    <div class="grid-fx"></div>
+    <div class="noise"></div>
+  </div>
+
+  <!-- ══════════ NAVIGATION ══════════ -->
+  <header id="nav" class="nav">
+    <div class="nav-inner">
+      <a href="#hero" class="brand" aria-label="Noxlab Studio — retour en haut">
+        <svg class="crown" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l2.5 7h13L21 9l-4.5 2.5L12 4 7.5 11.5 3 9z"/><path d="M6 19h12"/></svg>
+        <b class="bx">NOXLAB</b><span class="bs">STUDIO</span>
+      </a>
+      <nav class="nav-links" aria-label="Navigation principale">
+        <a class="nav-link" href="#studio">Studio</a>
+        <a class="nav-link" href="#services">Services</a>
+        <a class="nav-link" href="#tarifs">Tarifs</a>
+        <a class="nav-link" href="#packs">Packs</a>
+        <a class="nav-link" href="#contact">Contact</a>
+      </nav>
+      <a href="#contact" class="btn btn-primary btn-nav magnetic">Réserver</a>
+      <button id="burger" class="burger" aria-label="Ouvrir le menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- menu mobile -->
+  <div class="mmenu" aria-hidden="true">
+    <a class="mlink" href="#studio" style="--i:0">Studio</a>
+    <a class="mlink" href="#services" style="--i:1">Services</a>
+    <a class="mlink" href="#tarifs" style="--i:2">Tarifs</a>
+    <a class="mlink" href="#packs" style="--i:3">Packs</a>
+    <a class="mlink" href="#contact" style="--i:4">Contact</a>
+    <a class="mlink mlink-cta" href="#contact" style="--i:5">Réserver une session</a>
+    <p class="mfoot script">Ton projet, notre vision</p>
+  </div>
+
+  <main>
+  <!-- ══════════ HERO ══════════ -->
+  <section id="hero" class="hero">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="hero-emblem" data-parallax="0.16" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.32" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l2.5 7h13L21 9l-4.5 2.5L12 4 7.5 11.5 3 9z"/><path d="M6 19h12"/></svg>
+    </div>
+
+    <div id="heroInner" class="hero-inner">
+      <p class="hero-chip ldst"><span class="pulse-dot"></span>STUDIO CRÉATIF — SON • IMAGE • RÉSEAUX • IA</p>
+
+      <svg class="hero-crown ldst" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l2.5 7h13L21 9l-4.5 2.5L12 4 7.5 11.5 3 9z"/><path d="M6 19h12"/></svg>
+
+      <h1 class="hero-name" aria-label="Noxlab"><span class="lt" style="--i:0">N</span><span class="lt" style="--i:1">O</span><span class="lt" style="--i:2">X</span><span class="lt" style="--i:3">L</span><span class="lt" style="--i:4">A</span><span class="lt" style="--i:5">B</span></h1>
+
+      <p class="hero-sub-name ldst"><i></i>STUDIO<i></i></p>
+
+      <p class="hero-script script ldst">Ton projet, notre vision</p>
+
+      <p class="hero-txt ldst">Du son à l'image, on t'accompagne pour faire grandir ton univers et ta musique.<br>Enregistrement, mixage &amp; mastering, clips vidéo, réseaux sociaux et IA — tout au même endroit.</p>
+
+      <div class="hero-cta ldst">
+        <a href="#contact" class="btn btn-primary magnetic">
+          Réserver une session
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#tarifs" class="btn btn-ghost magnetic">
+          Voir les tarifs
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5.5 12.5L12 19l6.5-6.5"/></svg>
+        </a>
+      </div>
+
+      <div class="hero-badges ldst">
+        <div class="hbadge"><b>dès 20 €</b><span>l'heure de studio</span></div>
+        <div class="hbadge"><b>dès 150 €</b><span>clip pro monté</span></div>
+        <div class="hbadge"><b>dès 70 €</b><span>pack tout-en-un</span></div>
+      </div>
+    </div>
+
+    <div class="scrolldown ldst" aria-hidden="true">
+      <span>Scroll</span>
+      <span class="sd-line"></span>
+    </div>
+  </section>
+
+  <!-- ══════════ BANDEAU DÉFILANT ══════════ -->
+  <div class="marquee mq1" aria-hidden="true">
+    <div class="mq-track">
+      <div class="mq-chunk">
+        <span>ENREGISTREMENT</span><i>✦</i><span>MIXAGE &amp; MASTERING</span><i>✦</i><span>CLIPS VIDÉO</span><i>✦</i><span>SHORTS &amp; TIKTOK</span><i>✦</i><span>RÉSEAUX SOCIAUX</span><i>✦</i><span>CRÉATION IA</span><i>✦</i>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════ CHIFFRES ══════════ -->
+  <section id="stats" class="stats" aria-label="Noxlab en quelques chiffres">
+    <div class="wrap stats-grid">
+      <div class="stat rv" style="--i:0"><b class="stat-num"><span data-count="18">0</span></b><span class="stat-lbl">prestations à la carte</span></div>
+      <div class="stat rv" style="--i:1"><b class="stat-num"><span data-count="3">0</span></b><span class="stat-lbl">packs tout-en-un</span></div>
+      <div class="stat rv" style="--i:2"><b class="stat-num"><span data-count="3">0</span></b><span class="stat-lbl">réseaux pilotés</span></div>
+      <div class="stat rv" style="--i:3"><b class="stat-num"><span data-count="100">0</span><em>%</em></b><span class="stat-lbl">suivi &amp; passion</span></div>
+    </div>
+  </section>
+  <!-- ══════════ LE STUDIO ══════════ -->
+  <section id="studio" class="section about">
+    <div class="wrap">
+      <div class="about-grid">
+        <div class="about-left">
+          <p class="kicker rv" style="--i:0">Le studio</p>
+          <h2 class="sec-title" data-split>Plus qu'un studio, une équipe pour ton *avenir*.</h2>
+          <p class="sec-text rv" style="--i:2">Du son à l'image, on t'accompagne pour faire grandir ton univers et ta musique : enregistrement, mixage &amp; mastering, clips vidéo, réseaux sociaux et création assistée par IA — tout au même endroit, avec des tarifs clairs et accessibles.</p>
+          <div class="about-chips rv" style="--i:3">
+            <span class="chip">Enregistrement studio</span>
+            <span class="chip">Mixage &amp; Mastering</span>
+            <span class="chip">Clips vidéo &amp; Shorts</span>
+            <span class="chip">Réseaux sociaux</span>
+            <span class="chip">Stratégie &amp; idées</span>
+            <span class="chip">Création avec IA</span>
+          </div>
+        </div>
+        <div class="about-right rv rv-r" style="--i:1">
+          <div class="rec-card tilt">
+            <div class="rec-head">
+              <span class="rec-dot r"></span>ENREGISTREMENT — TEMPS RÉEL
+            </div>
+            <div class="tc"><span id="tcTime">SESSION</span><i class="tc-dot" aria-hidden="true"></i></div>
+            <div class="rec-chips">
+              <span class="chip">Son propre</span>
+              <span class="chip">Puissant</span>
+              <span class="chip">Prêt à sortir</span>
+            </div>
+            <p class="tc-script script">Prêt à sortir du labo</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tiles">
+        <div class="tile rv" style="--i:0">
+          <span class="t-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4.5"/></svg></span>
+          <h3>Qualité professionnelle</h3>
+          <p>Un son et une image calibrés, livrés prêts à publier.</p>
+        </div>
+        <div class="tile rv" style="--i:1">
+          <span class="t-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12.6 2.6L21 3.4l.8 8.4-9.4 9.4a2 2 0 0 1-2.8 0l-6-6a2 2 0 0 1 0-2.8z"/><circle cx="16.5" cy="7.5" r="1.6"/></svg></span>
+          <h3>Tarifs accessibles</h3>
+          <p>Des prix pensés pour les artistes qui démarrent. Chaque détail compté.</p>
+        </div>
+        <div class="tile rv" style="--i:2">
+          <span class="t-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="7.5" r="3.5"/><path d="M3.5 20c.8-3.5 3.3-5.5 6.5-5.5s5.7 2 6.5 5.5"/><path d="M18.5 4.5l.9 2.1 2.1.9-2.1.9-.9 2.1-.9-2.1-2.1-.9 2.1-.9z"/></svg></span>
+          <h3>Accompagnement personnalisé</h3>
+          <p>Une équipe qui te conseille avant, pendant et après la livraison.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ SERVICES ══════════ -->
+  <section id="services" class="section services">
+    <div class="wrap">
+      <div class="sec-head center">
+        <p class="kicker rv" style="--i:0">Ce qu'on fait pour toi</p>
+        <h2 class="sec-title" data-split>Des services complets, du son au *screen*.</h2>
+        <p class="sec-text rv" style="--i:2">Clique sur une prestation : les tarifs détaillés sont juste en dessous.</p>
+      </div>
+
+      <div class="svc-grid">
+        <a href="#tarifs" class="svc-card tilt rv" style="--i:0" data-tab="0">
+          <span class="s-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M8.5 21h7"/></svg></span>
+          <h3>Enregistrement</h3>
+          <p>Une vraie session studio : un son propre, puissant, prêt à sortir.</p>
+          <span class="s-foot"><b>dès 20 €</b><span class="s-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
+        </a>
+        <a href="#tarifs" class="svc-card tilt rv" style="--i:1" data-tab="0">
+          <span class="s-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v6M6 13v8M12 3v2M12 9v12M18 3v8M18 15v6"/><circle cx="6" cy="11" r="2"/><circle cx="12" cy="7" r="2"/><circle cx="18" cy="13" r="2"/></svg></span>
+          <h3>Mixage &amp; Mastering</h3>
+          <p>On peaufine ton morceau jusqu'à ce qu'il sonne comme une prod de label.</p>
+          <span class="s-foot"><b>dès 40 €</b><span class="s-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
+        </a>
+        <a href="#tarifs" class="svc-card tilt rv" style="--i:2" data-tab="1">
+          <span class="s-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="9.5" width="17" height="10.5" rx="2"/><path d="M4.5 9.5l1.6-4.2h13.8l-1.6 4.2M9.2 5.3l1.2 4M14.8 5.3l-1.2 4"/></svg></span>
+          <h3>Clips vidéo</h3>
+          <p>Performance ou cinématographique : des images qui claquent.</p>
+          <span class="s-foot"><b>dès 150 €</b><span class="s-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
+        </a>
+        <a href="#tarifs" class="svc-card tilt rv" style="--i:3" data-tab="1">
+          <span class="s-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M10.5 5.5h3"/><path d="M10 12.2l4.2 2.3-4.2 2.3z"/></svg></span>
+          <h3>Shorts, Reels &amp; TikTok</h3>
+          <p>Des contenus courts montés pour faire décoller ton flow.</p>
+          <span class="s-foot"><b>dès 25 €</b><span class="s-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
+        </a>
+        <a href="#tarifs" class="svc-card tilt rv" style="--i:4" data-tab="2">
+          <span class="s-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="12" r="2.5"/><circle cx="17.5" cy="5.5" r="2.5"/><circle cx="17.5" cy="18.5" r="2.5"/><path d="M8.3 10.8l6.9-4M8.3 13.2l6.9 4"/></svg></span>
+          <h3>Réseaux sociaux</h3>
+          <p>Ta présence en ligne pilotée : 8 publications par mois, du contenu aux résultats.</p>
+          <span class="s-foot"><b>99 €/mois</b><span class="s-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
+        </a>
+        <a href="#tarifs" class="svc-card tilt rv" style="--i:5" data-tab="1">
+          <span class="s-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/><rect x="10" y="10" width="4" height="4"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg></span>
+          <h3>Création IA</h3>
+          <p>Clips générés avec IA : des visuels 3D ou surréalistes, uniques.</p>
+          <span class="s-foot"><b>dès 250 €</b><span class="s-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+  <!-- ══════════ TARIFS ══════════ -->
+  <section id="tarifs" class="section pricing">
+    <div class="wrap">
+      <div class="sec-head center">
+        <p class="kicker rv" style="--i:0">Tarifs transparents</p>
+        <h2 class="sec-title" data-split>Chaque détail *compté*, pour un résultat qui *ressemble*.</h2>
+      </div>
+
+      <div id="tabs" class="tabs rv" role="tablist" aria-label="Catégories de tarifs">
+        <span id="tabInd" class="tab-ind" aria-hidden="true"></span>
+        <button class="tab active" role="tab">studio &amp; son</button>
+        <button class="tab" role="tab">clips &amp; shorts</button>
+        <button class="tab" role="tab">idées &amp; réseaux</button>
+        <button class="tab" role="tab">suppléments</button>
+      </div>
+
+      <div class="panels">
+        <div class="panel active" data-panel="0">
+          <div class="p-row"><div class="p-info"><b class="p-name">Enregistrement studio <span class="p-desc">tarif à l'heure — ingénieur son inclus</span></b></div><span class="p-dots"></span><b class="p-price">20 €/h</b></div>
+          <div class="p-row"><div class="p-info"><b class="p-name">Session 2 h <i class="p-tag promo">promo</i><span class="p-desc">session d'enregistrement guidée</span></b></div><span class="p-dots"></span><b class="p-price">35 €</b></div>
+          <div class="p-row"><div class="p-info"><b class="p-name">Mixage seul <span class="p-desc">équilibre, FX, spatialisation</span></b></div><span class="p-dots"></span><b class="p-price">40 €</b></div>
+          <div class="p-row"><div class="p-info"><b class="p-name">Mastering seul <span class="p-desc">volume optimisé &amp; normes streaming</span></b></div><span class="p-dots"></span><b class="p-price">20 €</b></div>
+          <div class="p-row"><div class="p-info"><b class="p-name">Pack Mixage + Mastering <span class="p-desc">traitement complet d'un morceau</span></b></div><span class="p-dots"></span><b class="p-price g">50 €</b></div>
+          <div class="p-row"><div class="p-info"><b class="p-name">Édition / nettoyage vocal <span class="p-desc">autotune pro, de-essing, calage</span></b></div><span class="p-dots"></span><b class="p-price">+15 à 30 €</b></div>
+        </div>
+
+        <div class="panel" data-panel="1">
+          <div class="p-row"><div class="p-info"><b class="p-name">Clip Performance <span class="p-desc">ta performance filmée, montée et livrée prête à sortir</span></b></div><span class="p-dots"></span><b class="p-price">150 €</b></div>
+          <div class="p-row"><div class="p-info"><b class="p-name">Clip Cinématographique <span class="p-desc">scénario, multi-lieux, stabilisateur</span></b></div><span class="p-dots"></span><b class="p-price">250 €</b></div>
+          <div class="p-row"><div class="p-info"><b class="p-name">Short / Reel simple <span class="p-desc">format vertical, 15–30 s</span></b></div><span class="p-dots"></span><b class="p-price">25 €</b></div>
+          <div class="p-row"><div class="p-info"><b class="p-name">Short dynamique <span class="p-desc">sous-titres animés, effets &amp; cuts</span></b></div><span class="p-dots"></span><b class="p-price">40 €</b></div>
+          <div class="p-row"><div class="p-info"><b class="p-name">Pack 4 Shorts <span class="p-desc">contenus de promotion réseaux</span></b></div><span class="p-dots"></span><b class="p-price">80 €</b></div>
+          <div class="p-row"><div class="p-info"><b class="p-name">Clip généré avec IA <span class="p-desc">visuels 3D / surréalistes uniques</span></b></div><span class="p-dots"></span><b class="p-price">250 à 500 €</b></div>
+        </div>
+
+        <div class="panel" data-panel="2">
+          <div class="p-row"><div class="p-info"><b class="p-name">Recherche : 10 idées de vidéos <span class="p-desc">des idées fraîches pour garder ton audience</span></b></div><span class="p-dots"></span><b class="p-price">20 €</b></div>
+          <div class="p-row"><div class="p-info"><b class="p-name">Script détaillé prêt à tourner <span class="p-desc">déroulé &amp; accroche (hook)</span></b></div><span class="p-dots"></span><b class="p-price">25 €</b></div>
+          <div class="p-row"><div class="p-info"><b class="p-name">Gestion réseaux (essentielle) <span class="p-desc">8 publications / mois — ta présence en ligne pilotée</span></b></div><span class="p-dots"></span><b class="p-price">99 €/mois</b></div>
+        </div>
+
+        <div class="panel" data-panel="3">
+          <div class="p-row"><div class="p-info"><b class="p-name">Ajout d'effets IA / visuels <span class="p-desc">sur un clip ou une vidéo existante</span></b></div><span class="p-dots"></span><b class="p-price">+30 à 100 €</b></div>
+          <div class="p-row"><div class="p-info"><b class="p-name">Sous-titres / paroles animées <span class="p-desc">format karaoké dynamique</span></b></div><span class="p-dots"></span><b class="p-price">20 à 40 €</b></div>
+          <div class="p-row"><div class="p-info"><b class="p-name">Livraison express <span class="p-desc">rendu audio ou vidéo sous 48 h</span></b></div><span class="p-dots"></span><b class="p-price">+20 à 30 %</b></div>
+        </div>
+      </div>
+
+      <p class="pr-note script rv">Chaque détail compté, pour un résultat qui te ressemble ✦</p>
+    </div>
+  </section>
+  <!-- ══════════ PACKS ══════════ -->
+  <section id="packs" class="section packs">
+    <div class="wrap">
+      <div class="sec-head center">
+        <p class="kicker rv" style="--i:0">Packs spéciaux</p>
+        <h2 class="sec-title" data-split>Les meilleures offres pour aller plus *loin*.</h2>
+        <p class="sec-text rv" style="--i:2">Des formules prêtes à l'emploi : pour tester, pour lancer, ou pour tout passer au niveau supérieur.</p>
+      </div>
+
+      <div class="pk-grid">
+        <div class="pk-card tilt rv" style="--i:0">
+          <span class="pk-chip g">Idéal pour commencer</span>
+          <h3>Pack Studio &amp; Son</h3>
+          <b class="pk-price"><span data-count="70">0</span> €</b>
+          <ul class="pk-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 7"/></svg>Session d'enregistrement (2 h)</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 7"/></svg>Mixage complet du morceau</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 7"/></svg>Mastering HD streaming</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 7"/></svg>Gain immédiat de 15 €</li>
+          </ul>
+          <a href="#contact" class="btn btn-ghost btn-block" data-pack="Pack Studio & Son (70 €)">Choisir ce pack</a>
+        </div>
+
+        <div class="pk-card pop tilt rv" style="--i:1">
+          <span class="pk-pop v">Le best-seller</span>
+          <span class="pk-chip b">Le plus choisi des artistes</span>
+          <h3>Pack Single &amp; Clip</h3>
+          <b class="pk-price"><span data-count="300">0</span> €</b>
+          <ul class="pk-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 7"/></svg>Session studio + mix + master</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 7"/></svg>Clip vidéo « Performance »</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 7"/></svg>2 Shorts / Reels montés</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 7"/></svg>Export HD &amp; étalonnage pro</li>
+          </ul>
+          <a href="#contact" class="btn btn-primary btn-block" data-pack="Pack Single & Clip (300 €)">Choisir ce pack</a>
+          <p class="pk-script script">Ton single, habillé de A à Z</p>
+        </div>
+
+        <div class="pk-card top tilt rv" style="--i:2">
+          <span class="pk-chip y">Projet premium</span>
+          <h3>Pack Cinéma Pro</h3>
+          <b class="pk-price"><span data-count="500">0</span> €</b>
+          <ul class="pk-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 7"/></svg>Session studio + mix + master</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 7"/></svg>Clip cinéma multi-lieux</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 7"/></svg>Pack 4 Shorts promo</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 7"/></svg>Effets IA &amp; FX inclus</li>
+          </ul>
+          <a href="#contact" class="btn btn-ghost btn-block" data-pack="Pack Cinéma Pro (500 €)">Choisir ce pack</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ POURQUOI + PROCESS ══════════ -->
+  <section id="pourquoi" class="section why">
+    <div class="wrap">
+      <div class="sec-head center">
+        <p class="kicker rv" style="--i:0">Pourquoi Noxlab ?</p>
+        <h2 class="sec-title" data-split>Parce que ton succès est *aussi le nôtre*.</h2>
+      </div>
+
+      <div class="why-grid">
+        <div class="why-list">
+          <div class="why-item rv" style="--i:0">
+            <span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 7"/></svg></span>
+            <div><h3>Des prix accessibles</h3><p>Pensés pour les artistes amateurs qui veulent du sérieux sans se ruiner.</p></div>
+          </div>
+          <div class="why-item rv" style="--i:1">
+            <span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 7"/></svg></span>
+            <div><h3>Un accompagnement sur mesure</h3><p>On te conseille, on t'oriente, on adapte chaque devis à ton projet.</p></div>
+          </div>
+          <div class="why-item rv" style="--i:2">
+            <span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 7"/></svg></span>
+            <div><h3>Une vraie passion</h3><p>Pour la musique et la création — on assume : on fait ça pour la vibe.</p></div>
+          </div>
+          <div class="why-item rv" style="--i:3">
+            <span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 7"/></svg></span>
+            <div><h3>Un suivi même après la livraison</h3><p>On ne disparaît pas : on reste là après la sortie. Compte sur nous.</p></div>
+          </div>
+        </div>
+
+        <div id="process" class="process-card rv rv-r" style="--i:2">
+          <h3>Comment ça marche</h3>
+          <div class="pr-line"><span id="prFill"></span></div>
+          <div class="pr-steps">
+            <div class="pr-step"><span class="pr-dot"></span><h4>Écris-nous</h4><p>Dis-nous ton projet : son, clip, réseaux, IA.</p></div>
+            <div class="pr-step"><span class="pr-dot"></span><h4>On te conseille</h4><p>Un devis clair, transparent, chaque détail compté.</p></div>
+            <div class="pr-step"><span class="pr-dot"></span><h4>On crée</h4><p>En studio, en tournage ou avec nos outils IA.</p></div>
+            <div class="pr-step"><span class="pr-dot"></span><h4>Tu brilles</h4><p>Livraison soignée + un suivi même après.</p></div>
+          </div>
+          <p class="pr-script script">Ton succès commence ici !</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ══════════ CONTACT ══════════ -->
+  <section id="contact" class="section contact">
+    <div class="marquee mq2" aria-hidden="true">
+      <div class="mq-track">
+        <div class="mq-chunk">
+          <span>TON PROJET</span><i>✦</i><span>NOTRE VISION</span><i>✦</i><span>TON SUCCÈS</span><i>✦</i><span>COMMENCE ICI</span><i>✦</i>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap contact-grid">
+      <div class="c-left">
+        <p class="kicker rv" style="--i:0">Contact</p>
+        <h2 class="sec-title" data-split>Ton succès *commence ici*.</h2>
+        <p class="sec-text rv" style="--i:1">Un message sur TikTok, Insta ou YouTube (@NOXLABSTUDIO) et c'est parti — on répond en moins de 24 h. Dis-nous où en est ton projet, on s'occupe du reste.</p>
+
+        <div class="socials rv" style="--i:2">
+          <a class="soc" href="https://www.tiktok.com/@noxlabstudio" target="_blank" rel="noopener" title="Rejoins-nous sur TikTok">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+            <span>TikTok</span>
+          </a>
+          <a class="soc" href="https://www.instagram.com/noxlabstudio/" target="_blank" rel="noopener" title="Suis-nous sur Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="2.2" y="2.2" width="19.6" height="19.6" rx="5.5"/><circle cx="12" cy="12" r="4.6"/><circle cx="17.4" cy="6.6" r="1.4" fill="currentColor" stroke="none"/></svg>
+            <span>Instagram</span>
+          </a>
+          <a class="soc" href="https://www.youtube.com/@NOXLABSTUDIO" target="_blank" rel="noopener" title="Abonne-toi sur YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor"><rect x="1.5" y="4.2" width="21" height="15.6" rx="4.2"/><path d="M10 8.8l5.4 3.2L10 15.2z" fill="#060a14"/></svg>
+            <span>YouTube</span>
+          </a>
+        </div>
+
+        <div class="c-note rv" style="--i:3">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+          Réponse en moins de 24 h
+        </div>
+      </div>
+
+      <form id="cform" class="c-card tilt rv rv-r" style="--i:2">
+        <h3>Dis-nous ton projet</h3>
+        <label for="cname">Ton nom d'artiste</label>
+        <input id="cname" type="text" placeholder="Ex. : Little Flow" autocomplete="name">
+        <label for="ctype">Ce que tu veux faire</label>
+        <select id="ctype">
+          <option value="Enregistrement studio">Enregistrement studio</option>
+          <option value="Mixage">Mixage</option>
+          <option value="Mastering">Mastering</option>
+          <option value="Clip vidéo">Clip vidéo</option>
+          <option value="Shorts & Reels">Shorts &amp; Reels</option>
+          <option value="Réseaux sociaux (gestion)">Réseaux sociaux (gestion)</option>
+          <option value="Idées & scripts">Idées &amp; scripts</option>
+          <option value="Clip généré avec IA">Clip généré avec IA</option>
+          <option value="Pack Studio & Son (70 €)">Pack Studio &amp; Son — 70 €</option>
+          <option value="Pack Single & Clip (300 €)">Pack Single &amp; Clip — 300 €</option>
+          <option value="Pack Cinéma Pro (500 €)">Pack Cinéma Pro — 500 €</option>
+          <option value="Autre / je ne sais pas">Autre / je ne sais pas</option>
+        </select>
+        <label for="cmsg">Ton message</label>
+        <textarea id="cmsg" rows="5" placeholder="Parle-nous de ton son, ton style, tes délais…"></textarea>
+        <button type="submit" class="btn btn-primary btn-block">
+          Envoyer ma demande
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 11.5L21 4l-7.5 17.5-2.8-7.7z"/><path d="M21 4l-10.3 9.8"/></svg>
+        </button>
+        <p class="c-hint">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="8.5" y="7.5" width="12" height="13" rx="2"/><path d="M5.5 15.5h-1a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Ton message est copié : colle-le dans notre DM TikTok, Instagram ou YouTube.
+        </p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ══════════ PIED DE PAGE ══════════ -->
+  <footer class="foot">
+    <div class="wrap foot-grid">
+      <div class="f-brand">
+        <a href="#hero" class="brand">
+          <svg class="crown" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l2.5 7h13L21 9l-4.5 2.5L12 4 7.5 11.5 3 9z"/><path d="M6 19h12"/></svg>
+          <b class="bx">NOXLAB</b><span class="bs">STUDIO</span>
+        </a>
+        <p class="script f-script">Crée • Partage • Évolue</p>
+      </div>
+      <nav class="f-links" aria-label="Liens de pied de page">
+        <a href="#studio">Studio</a><a href="#services">Services</a><a href="#tarifs">Tarifs</a><a href="#packs">Packs</a><a href="#contact">Contact</a>
+      </nav>
+      <div class="f-soc">
+        <a href="https://www.tiktok.com/@noxlabstudio" target="_blank" rel="noopener" title="TikTok" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+        <a href="https://www.instagram.com/noxlabstudio/" target="_blank" rel="noopener" title="Instagram" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="2.2" y="2.2" width="19.6" height="19.6" rx="5.5"/><circle cx="12" cy="12" r="4.6"/><circle cx="17.4" cy="6.6" r="1.4" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://www.youtube.com/@NOXLABSTUDIO" target="_blank" rel="noopener" title="YouTube" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="1.5" y="4.2" width="21" height="15.6" rx="4.2"/><path d="M10 8.8l5.4 3.2L10 15.2z" fill="#060a14"/></svg></a>
+      </div>
+    </div>
+    <div class="wrap foot-base">
+      <span>© 2026 Noxlab Studio — Son • Image • Passion</span>
+      <a class="f-site" href="https://www.noxlab-studio.com" target="_blank" rel="noopener">www.noxlab-studio.com</a>
+      <span class="script">Chaque détail compté</span>
+    </div>
+  </footer>
+
+  <!-- retour en haut -->
+  <button id="toTop" aria-label="Retour en haut">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5.5 11.5L12 5l6.5 6.5"/></svg>
+  </button>
+
+  <!-- notification -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+  </main>
+</body>
+</html>
