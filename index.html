@@ -11,7 +11,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Caveat:wght@600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233fb7ff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 9l2.5 7h13L21 9l-4.5 2.5L12 4 7.5 11.5z'/%3E%3Cpath d='M6 19h12'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="styles.css">
+  <!-- Cache-busting : bump ?v= après chaque changement de styles.css /
+       script.js (GitHub Pages garde les fichiers 10 min en cache, le
+       navigateur plus longtemps — sans bump, les visiteurs voient une
+       vieille version en ligne alors que l'aperçu est à jour). -->
+  <link rel="stylesheet" href="styles.css?v=3">
 </head>
 <body>
 
@@ -555,7 +559,7 @@
   <!-- notification -->
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=3"></script>
   </main>
 </body>
 </html>
