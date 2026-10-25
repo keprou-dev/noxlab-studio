@@ -262,15 +262,15 @@ body.menu-open .mfoot{opacity:1}
   transform:skewX(-6deg);
   filter:drop-shadow(0 0 40px rgba(63,183,255,.22));
 }
-/* Lettres : élément statique uniquement (dégradé + découpe texte).
-   L'animation vit sur le wrapper .ltw (hors de l'élément dégradé)
-   pour éviter le bug d'affichage Chromium : un fond opaque (tache
-   blanche) qui clignote quand background-clip:text est animé. */
+/* Lettres : couleur unie (PAS de background-clip:text).
+   Raison (2026-10-25) : le clip texte posé lettre par lettre sur des
+   glyphes penchés (italique + skew) tronque leur bord droit dans
+   Chromium. Le halo néon du drop-shadow du h1 donne la profondeur,
+   l'animation d'entrée vit sur l'enveloppe .ltw (hors de la lettre). */
 .hero-name .lt{
   display:inline-block;
-  background:linear-gradient(180deg,#ffffff 30%,#c4daf5 90%);
-  -webkit-background-clip:text;background-clip:text;
-  color:transparent;
+  color:#ffffff;
+  text-shadow:0 3px 26px rgba(196,218,245,.28);
 }
 .js .hero-name .ltw{
   display:inline-block;opacity:0;
@@ -700,9 +700,10 @@ body.menu-open .mfoot{opacity:1}
 .foot-base .script{color:var(--blue2);font-size:1.15rem}
 .f-site{color:var(--blue2);font-weight:700;transition:color .3s}
 .f-site:hover{color:#fff}
-/* Per-letter gradient fix (découpage lettres hero) : le dégradé est désormais posé
-   directement sur .lt (voir le bloc .hero-name .lt) — l'ancien hack background:inherit
-   est retiré, il laissait des rectangles clairs pendant l'intro. */
+/* Historique lettres hero (découpage) : dégradé supprimé le 2026-10-25 —
+   `background-clip:text` tronque le bord droit des glyphes penchés dans
+   Chromium (lettres coupées à droite). Les lettres sont maintenant unies
+   (voir le bloc `.hero-name .lt`). Plus de hack dégradé sur ce titre. */
 
 /* ---------- Navigation masquée quand menu ouvert ---------- */
 body.menu-open .nav{transform:none !important}
